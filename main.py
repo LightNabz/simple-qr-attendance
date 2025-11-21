@@ -6,6 +6,9 @@ import os
 import cv2
 import time
 import glob
+import http.server
+import socketserver
+import threading
 
 # Cooldown (seconds) before the same siswa can absen again
 ABSEN_COOLDOWN_SECONDS = 300  # 5 minutes
@@ -89,7 +92,10 @@ def menu():
             atur_sesi_menu()
         elif pilihan == "0":
             print("Keluar...")
-            os.remove("logs/absensi.csv")
+            if not os.path.exists("logs/absensi.csv"):
+                pass
+            else:
+                os.remove("logs/absensi.csv")
             break
         else:
             print("Pilihan tidak valid.\n")
