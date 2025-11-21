@@ -35,7 +35,6 @@ def play_sound():
     except:
         pass
 
-# Modules split into separate files to keep main.py small
 import absensi
 import siswa
 import sessions
