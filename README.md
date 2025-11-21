@@ -54,6 +54,11 @@ Dari direktori proyek, jalankan:
 python main.py
 ```
 
+atau,
+```bash
+QT_QPA_PLATFORM=xcb python main.py
+```
+
 Jika Anda mengalami masalah dengan tampilan/Qt (mis. `cv2.imshow`) di lingkungan tertentu (mis. Wayland/X11), Anda dapat menambahkan variabel lingkungan seperti contoh berikut:
 
 ```bash
