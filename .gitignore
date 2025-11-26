@@ -1,0 +1,4 @@
+venv
+qrcode_generated
+logs
+__pycache__

@@ -4,9 +4,7 @@ import time
 import json
 from datetime import datetime
 
-# Cooldown (seconds) before the same siswa can absen again
-ABSEN_COOLDOWN_SECONDS = 300  # 5 minutes
-
+ABSEN_COOLDOWN_SECONDS = 300
 
 def _get_last_absen_time(nis):
     """Return last absensi datetime for `nis` from logs, or None if not found."""
@@ -83,13 +81,12 @@ def tanda_absen(nis, session_container):
     # Ensure logs directory exists
     os.makedirs(os.path.dirname("logs/absensi.csv"), exist_ok=True)
     with open("logs/absensi.csv", "a") as f:
-        # New format: nis,waktu,kelas  (legacy readers expecting two columns are supported)
         f.write(f"{nis},{waktu},{kelas}\n")
 
     # Track in current session provided by caller
     if not hasattr(session_container, 'session_absensi') or session_container.session_absensi is None:
         session_container.session_absensi = []
-    # Append kelas in-session too (some runs may still append 2-tuples elsewhere)
+    # Append kelas in-session too (some runs may still append 2-tuples elsewhere -w-)
     session_container.session_absensi.append((nis, waktu, kelas))
     return True
 

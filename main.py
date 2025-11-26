@@ -10,9 +10,6 @@ import http.server
 import socketserver
 import threading
 
-# Cooldown (seconds) before the same siswa can absen again
-ABSEN_COOLDOWN_SECONDS = 300  # 5 minutes
-
 # ===================== LOGIN =====================
 
 def login():
@@ -42,11 +39,9 @@ import absensi
 import siswa
 import sessions
 
-# session container to pass into absensi functions
+# session container to pass into absensi functions OwO
 session_container = sessions
 
-
-# Wrappers that keep the same names used by the menu
 def scan_absensi():
     return absensi.scan_absensi(play_sound, session_container)
 
